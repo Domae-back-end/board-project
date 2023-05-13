@@ -5,13 +5,16 @@ import com.fastcampus.projectboard.domain.Article;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
+//@ActiveProfiles("testdb") //application 에 있는 testdb 파일을 실행.
 @DisplayName("JPA 연결 테스트")
 @Import(JpaConfig.class)
 @DataJpaTest
@@ -44,7 +47,7 @@ class JpaRepositoryTest {
         //Given
         long previousCount = articleRepository.count();
         //When
-        Article savedArticle = articleRepository.save(Article.of("new article", "new content", "new hashtag"));
+        articleRepository.save(Article.of("new article", "new content", "new hashtag"));
         //Then
         assertThat(articleRepository.count())
                 .isEqualTo(previousCount + 1);
