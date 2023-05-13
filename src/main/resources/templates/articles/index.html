@@ -1,0 +1,85 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 페이지</title>
+</head>
+
+<body>
+    <header>
+        header 삽입부
+        <hr>
+    </header>
+
+    <main>
+        <form>
+            <label for="search-type" hidden="hidden">유형</label>
+            <select id="search-type" name="search-type">
+                <option>제목</option>
+                <option>본문</option>
+                <option>ID</option>
+                <option>닉네임</option>
+                <option>해시태그</option>
+            </select>
+            <label for="search-value" hidden="hidden">검색어</label>
+            <input id="search-value" type="search" name="search-value" placeholder="검색어..." />
+            <button type="submit">검색</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>제목</th>
+                    <th>해시태그</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>게시판에 대하여1</th>
+                    <th>#article</th>
+                    <th>KwonJongWon</th>
+                    <th>2022-04-08</th>
+                </tr>
+                <tr>
+                    <th>게시판에 대하여2</th>
+                    <th>#spring</th>
+                    <th>KwonJongWon</th>
+                    <th>2022-04-08</th>
+                </tr>
+                <tr>
+                    <th>게시판에 대하여3</th>
+                    <th>#test</th>
+                    <th>KwonJongWon</th>
+                    <th>2022-04-08</th>
+                </tr>
+                <tr>
+                    <th>게시판에 대하여4</th>
+                    <th>#ddd</th>
+                    <th>KwonJongWon</th>
+                    <th>2022-04-08</th>
+                </tr>
+            </tbody>
+        </table>
+
+        <nav>
+            <table>
+                <tr>
+                    <td>previous</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>next</td>
+                </tr>
+            </table>
+        </nav>
+    </main>
+
+    <footer>
+        <hr>
+        footer 삽입부
+    </footer>
+</body>
+
+</html>
