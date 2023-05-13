@@ -22,7 +22,7 @@ public class ArticleCotroller {
     @GetMapping("/{articleId}")
     public String article(ModelMap map,
                           @PathVariable Long articleId){
-        map.addAttribute("article", null);
+        map.addAttribute("article", "article");
         map.addAttribute("articleComments", List.of());
         return "articles/detail";
     }

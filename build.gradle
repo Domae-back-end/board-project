@@ -57,6 +57,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+	//시큐릿
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 }
 
 tasks.named('test') {
