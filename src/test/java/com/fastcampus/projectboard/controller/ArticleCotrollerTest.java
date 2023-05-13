@@ -32,7 +32,7 @@ class ArticleCotrollerTest {
         mvc.perform(get("/articles"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
-                .andExpect(view().name("articles/index.html"))
+                .andExpect(view().name("articles/index"))
                 .andExpect(model().attributeExists("articles"));
 
     }
