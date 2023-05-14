@@ -8,9 +8,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @DisplayName("메인 컨트롤러")
 @Import(SecurityConfig.class)
@@ -23,13 +24,16 @@ class MainControllerTest {
         this.mvc = mvc;
     }
 
-    @DisplayName("Redirect 이용한다.")
+    @DisplayName("forward 이용한다.")
     @Test
     void givenNothing_whenRequestingRootPage_thenRedirectsToArticlesPage() throws Exception {
         //Given
         //when & Then
         mvc.perform(MockMvcRequestBuilders.get("/"))
-                .andExpect(status().is3xxRedirection());
+                .andExpect(status().isOk())
+                .andExpect(view().name("forward:/articles"))
+                .andExpect(forwardedUrl("/articles"))
+                .andDo(MockMvcResultHandlers.print());
     }
 
 }
