@@ -21,7 +21,7 @@ import java.util.Objects;
 public class UserAccount extends AuditingFields {
 
     @Id
-    @Column(length = 50)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(nullable = false) private String userId;

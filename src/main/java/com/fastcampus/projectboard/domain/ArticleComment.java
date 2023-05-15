@@ -30,7 +30,7 @@ public class ArticleComment extends AuditingFields {
     private Article article;
 
     @Setter
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_account_id")
     @ManyToOne(optional = false)
     private UserAccount userAccount;
 
