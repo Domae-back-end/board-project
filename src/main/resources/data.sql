@@ -8,7 +8,8 @@ insert into user_account (user_id, user_password, nickname, email, memo, created
 insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by) values
 ('kwon2', 'asdf1234', 'kwon3', 'kwon93022@mail.com', 'I am kwon9302.', now(), 'kwon2', now(), 'kwon2')
 ;
-insert into article (user_account_id, title, content, hashtag, created_by, modified_by, created_at, modified_at) values (3, 'Wilfred', 'error: undefined method `parameters_for'' for nil:NilClass', 'Maroon', 'Rosemarie', 'Heriberto', '2023-01-27 15:47:51', '2023-03-24 07:59:47');
+insert into article (user_account_id, title, content, hashtag, created_by, modified_by, created_at, modified_at)
+values (3, 'title', 'content', '#java', 'Rosemarie', 'Heriberto', '2023-01-27 15:47:51', '2023-03-24 07:59:47');
 insert into article (user_account_id, title, content, hashtag, created_by, modified_by, created_at, modified_at) values (3, 'Dalila', 'error: undefined method `parameters_for'' for nil:NilClass', 'Pink', 'Phillipe', 'Lise', '2023-03-03 19:50:56', '2023-01-31 05:49:16');
 insert into article (user_account_id, title, content, hashtag, created_by, modified_by, created_at, modified_at) values (3, 'Zora', 'error: undefined method `parameters_for'' for nil:NilClass', 'Yellow', 'Lorianna', 'Ingeberg', '2022-12-18 23:46:32', '2022-11-19 19:55:04');
 insert into article (user_account_id, title, content, hashtag, created_by, modified_by, created_at, modified_at) values (1, 'Molli', 'error: undefined method `parameters_for'' for nil:NilClass', 'Fuscia', 'Reginauld', 'Sherlock', '2023-03-17 08:47:31', '2023-04-14 21:01:36');
