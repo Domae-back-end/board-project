@@ -73,7 +73,9 @@ class ArticleCotrollerTest {
                 .andExpect(model().attributeExists("articles"))
                 .andExpect(model().attribute("paginationBarNumbers", barNumbers));
         then(articleService).should().searchArticles(null, null, pageable);
-        then(paginationService).should().getPaginationBarNumnbers(pageable.getPageNumber(), Page.empty().getTotalPages());
+        then(paginationService).should().getPaginationBarNumnbers(
+                pageable.getPageNumber(),
+                Page.empty().getTotalPages());
     }
 
     @Test

@@ -43,4 +43,5 @@ public record ArticleDTO(
                 hashtag
         );
     }
+    
 }
