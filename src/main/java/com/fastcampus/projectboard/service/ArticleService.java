@@ -48,11 +48,6 @@ public class ArticleService {
                 .orElseThrow(() -> new EntityNotFoundException("게시글이 없습니다 - articleId : "+articleId));
     }
 
-    @Transactional(readOnly = true)
-    public ArticleDTO searchArticle(long l) {
-        return null;
-    }
-
 
     public void saveArticle(ArticleDTO dto) {
         articleRepository.save(dto.toEntity());

@@ -16,7 +16,11 @@
 </head>
 
 <body>
-    <header id="header"></header>
+    <header id="header">
+        헤더 삽입부
+        <hr>
+    </header>
+
     <main class="container">
         <div class="row">
             <div class="col-lg-12 card-margin">
@@ -53,7 +57,7 @@
         </div>
         <div class="result-body">
             <div class="table-responsive">
-                <table class="table widget-26">
+                <table class="table widget-26" id="article-table">
                     <tbody>
                     <tr>
                         <td>
@@ -63,19 +67,19 @@
                         </td>
                         <td>
                             <div class="widget-26-job-title">
-                                <a href="#">게시글 입돠</a>
-                                <p class="m-0"><span class="text-muted time">게시글 날짜</span></p>
+                                <a id="title">게시글 입돠</a>
+                                <p class="m-0"><span id="created-at" class="text-muted time"><time>2023-01-01</time></span></p>
                             </div>
                         </td>
                         <td>
                             <div class="widget-26-job-info">
-                                <p class="type m-0">작성자</p>
+                                <p class="type m-0" id="user-id">작성자</p>
                             </div>
                         </td>
                         <td>
                             <div class="widget-26-job-category bg-soft-base">
                                 <i class="indicator bg-base"></i>
-                                <span>해시태그 입돠</span>
+                                <span id="hashtag">해시태그 입돠</span>
                             </div>
                         </td>
                     </tr>
@@ -108,7 +112,10 @@
 
     </main>
 
-    <footer id="footer"></footer>
+    <footer id="footer">
+        <hr>
+        footer 삽입부
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 

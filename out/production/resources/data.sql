@@ -8,6 +8,11 @@ insert into user_account (user_id, user_password, nickname, email, memo, created
 insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by) values
 ('kwon2', 'asdf1234', 'kwon3', 'kwon93022@mail.com', 'I am kwon9302.', now(), 'kwon2', now(), 'kwon2')
 ;
+
+insert into article (user_account_id, title, content, hashtag, created_by, modified_by, created_at, modified_at)
+values (3, '제목을 뭘로지을까?', '내가생각을 해보았다.. 이 게시글은 망했어', '#java', '권종원', '권종원', '2023-05-15 15:47:51', '2023-05-15 07:59:47');
+
+
 insert into article (user_account_id, title, content, hashtag, created_by, modified_by, created_at, modified_at)
 values (3, 'title', 'content', '#java', 'Rosemarie', 'Heriberto', '2023-01-27 15:47:51', '2023-03-24 07:59:47');
 insert into article (user_account_id, title, content, hashtag, created_by, modified_by, created_at, modified_at) values (3, 'Dalila', 'error: undefined method `parameters_for'' for nil:NilClass', 'Pink', 'Phillipe', 'Lise', '2023-03-03 19:50:56', '2023-01-31 05:49:16');
