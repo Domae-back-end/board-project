@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="JpbDataSourceConfig">
-    <data-sources>
-      <data-source id="bd05265c-ce77-442a-8ed2-05626d154b09" name="project-board" url="jdbc:mysql://localhost/board?useSSL=false&amp;allowMultiQueries=true&amp;serverTimezone=UTC" driverClass="com.mysql.cj.jdbc.Driver" />
-    </data-sources>
-  </component>
-</project>
