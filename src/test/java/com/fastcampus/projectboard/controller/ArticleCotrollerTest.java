@@ -1,6 +1,7 @@
 package com.fastcampus.projectboard.controller;
 
 import com.fastcampus.projectboard.config.SecurityConfig;
+import com.fastcampus.projectboard.domain.type.SearchType;
 import com.fastcampus.projectboard.dto.ArticleWithCommentsDTO;
 import com.fastcampus.projectboard.dto.UserAccountDTO;
 import com.fastcampus.projectboard.service.ArticleService;
@@ -49,6 +50,29 @@ class ArticleCotrollerTest {
         this.mvc = mvc;
     }
 
+
+    @Test
+    @DisplayName("[view] [GET] 게시글 리스트 (게시판 페이지) - 검색어와 정상호출")
+    public void givenKeyword_whenSearchingArticlesView_thenReturnsArticlesView() throws Exception {
+        //Given
+        SearchType searchType = SearchType.TITLE;
+        String searchValue = "title";
+        given(articleService.searchArticles(eq(searchType), eq(searchValue), any(Pageable.class))).willReturn(Page.empty());
+        given(paginationService.getPaginationBarNumnbers(anyInt(), anyInt())).willReturn(List.of(0, 1, 2, 3, 4));
+        //When&Then
+        mvc.perform(get("/articles")
+                        .queryParam("searchType",searchType.name())
+                        .queryParam("searchValue",searchValue))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+                .andExpect(view().name("articles/index"))
+                .andExpect(model().attributeExists("articles"))
+                .andExpect(model().attributeExists("searchTypes"));
+        then(articleService).should().searchArticles(eq(searchType), eq(searchValue), any(Pageable.class));
+        then(paginationService).should().getPaginationBarNumnbers(anyInt(), anyInt());
+
+    }
+
     @DisplayName("[view][GET] 게시글 리스트 (게시판) 페이지 - 페이징, 정렬 기능")
     @Test
     void givenPagingAndSortingParams_whenSearchingArticlesPage_thenReturnsArticlesPage() throws Exception {
@@ -64,9 +88,9 @@ class ArticleCotrollerTest {
 
         // When & Then
         mvc.perform(get("/articles")
-                .queryParam("page", String.valueOf(pageNumber))
-                .queryParam("size", String.valueOf(pageSize))
-                .queryParam("sort", sortName + "," + direction))
+                        .queryParam("page", String.valueOf(pageNumber))
+                        .queryParam("size", String.valueOf(pageSize))
+                        .queryParam("sort", sortName + "," + direction))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/index"))
