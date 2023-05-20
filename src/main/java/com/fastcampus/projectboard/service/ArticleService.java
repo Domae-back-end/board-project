@@ -71,4 +71,18 @@ public class ArticleService {
     public void deleteArticle(long articleId) {
         articleRepository.deleteById(articleId);
     }
+
+    @Transactional(readOnly = true)
+    public Page<ArticleDTO> searchArticlesViaHashtag(String hashtag, Pageable pageable) {
+
+        if(hashtag == null || hashtag.isBlank()){
+            return Page.empty(pageable);
+        }
+
+        return articleRepository.findByHashtag(hashtag,pageable).map(ArticleDTO::from);
+    }
+
+    public List<String> getHashtags() {
+        return articleRepository.findAllDistinctHashtags();
+    }
 }
